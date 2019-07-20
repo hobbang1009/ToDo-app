@@ -1,0 +1,44 @@
+.userProfile__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userProfile__column:nth-child(1) img {
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.userProfile__column:nth-child(2) {
+  display: flex;
+}
+.userProfile__column:nth-child(2) span {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.userProfile__column:nth-child(3) span {
+  display: block;
+  margin: 15px 0px;
+}
+.userProfile__column:nth-child(4) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.userProfile__column:nth-child(4) span {
+  font-size: 20px;
+}
+
+.userProfile__column:nth-child(4) form input {
+  display: block;
+  padding: 10px;
+  margin: 10px 0px;
+  width: 100%;
+}

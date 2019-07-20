@@ -1,0 +1,137 @@
+.loggedHome__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loggedHome__column:nth-child(1) img {
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.loggedHome__column:nth-child(2) {
+  font-family: Georgia;
+  font-size: 25px;
+  padding: 10px 10px;
+  margin-bottom: 15px;
+}
+
+.loggedHome__column:nth-child(2) a {
+  margin: 0px 10px;
+}
+
+.loggedHome__column:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#jsWeatherIconText {
+  display: none;
+}
+
+.loggedHome__column:nth-child(4) {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.loggedHome__column:nth-child(4) select {
+  padding: 5px;
+  font-size: 15px;
+  margin-right: 16px;
+  background-color: #f2f4f7;
+  color: #585858;
+  border: none;
+  border-bottom: 1px solid #585858;
+}
+
+.loggedHome__column:nth-child(4) select:focus {
+  outline: none;
+}
+
+.loggedHome__column:nth-child(4) input {
+  background-color: #f2f4f7;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.loggedHome__column:nth-child(4) input:focus {
+  outline: none;
+}
+
+.loggedHome__column:nth-child(5) {
+  border: 5px solid #e3e7ee;
+  width: 300px;
+  height: 400px;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(1) span {
+  cursor: pointer;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(2) ul {
+  padding: 10px 10px;
+  font-size: 15px;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(2) li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(2) span {
+  font-family: "Courgette", cursive;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 200px;
+  max-width: 200px;
+  cursor: default;
+}
+
+.loggedHome__column:nth-child(5)
+  .loggedHome__board:nth-child(2)
+  .todoUpdateInput {
+  margin: 0px 7px;
+  border-radius: 5px;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(2) .todoCheckBox {
+  cursor: pointer;
+}
+
+.loggedHome__column:nth-child(5) .board__form__container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loggedHome__column:nth-child(5) .board__form__container .board__new__input {
+  width: 50%;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.loggedHome__column:nth-child(5) .board__form__container .board__new__submit {
+  margin-top: 16px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.loggedHome__column:nth-child(5) .loggedHome__board:nth-child(3) span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}

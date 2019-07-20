@@ -1,0 +1,45 @@
+.join__container:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.join__container:nth-child(2) input {
+  width: 100%;
+  min-width: 250px;
+  display: block;
+  padding: 15px 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.join__container:nth-child(2) input:focus {
+  outline: none;
+}
+
+.join__container:nth-child(2) .join-submit {
+  font-size: 20px;
+  width: 100%;
+  background-color: #eeeeee;
+  cursor: pointer;
+  font-family: "Handlee", cursive;
+}
+
+.join__container:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.join__container:nth-child(3) input {
+  min-width: 100px;
+  width: 100%;
+  background-color: #eeeeee;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  padding: 10px 10px;
+  border-radius: 15px;
+}
+
+.join__container:nth-child(3) input:focus {
+  outline: none;
+}

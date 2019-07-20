@@ -1,0 +1,41 @@
+extends layouts/main
+
+block main
+
+    .userProfile__container
+
+        .userProfile__column
+
+            img(src=`${userAvatar}`)
+        
+        .userProfile__column
+
+            if(userID == queryID)
+                span#jsPictureEdit picture Edit
+                
+                form(id="jsPictureEditForm" class="hidden" action="/user/upload", method="post", enctype="multipart/form-data")
+                    input(type="file" name="avatar",accept="image/png")
+                    input(type="submit",value="edit")
+                button(id="jsPictureEditButton" class="hidden") X
+
+        .userProfile__column
+
+            
+            span #{userName}
+            span #{userEmail}
+
+        .userProfile__column
+
+             if(userID == queryID)
+                form(id="jsProfileEditForm" class="hidden" ,action="/user/profile", method="post")
+                    input(id="jsProfileEditName" type="text" ,name="name" , placeholder="name")
+                    input(id="jsProfileEditPassword" type="password",name="password",placeholder="change password")
+                    input(id="jsProfileEditPassword2" type="password",name="password2",placeholder="verify password")
+                    input(id="jsProfileEditSubmit" type="submit",value="edit")
+                form(id="jsProfileEditDelete" action="/user/delete", class='hidden',method="post")
+                    input(type="submit"  value="Delete Account")
+                button(id="jsProfileEditButton" , class="hidden") cancle
+
+                span#jsProfileEditSpan user info Edit
+
+    script(src="../js/profileControl.js")

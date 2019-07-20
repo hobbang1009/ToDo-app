@@ -1,0 +1,38 @@
+extends layouts/main
+block main
+
+
+    .home__Container
+
+
+        .home__column
+            
+            a(href=`/user/join?Location=${encodeURIComponent(query)}`) Join 
+            span |
+            a(href=`/user/login?Location=${encodeURIComponent(query)}`) Login
+
+        .home__column
+    
+            span.home__columnSpan1 #{location}
+        
+        .home__column
+        
+            span#jsWeatherIconText #{icon} 
+            <i id="jsWeatherIcon" class="fas fa-cloud-sun"></i>
+            span #{temperature}℃ 
+        
+        .home__column
+            
+            form(action="/",method="get")
+                select(name="Location")
+                    option(value='seoul') Location
+                    option(value="beijing")  Beijing
+                    option(value="saopaulo")  São Paulo
+                    option(value="seoul") Seoul
+                    option(value="shanghai") Shanghai
+                    option(value="london") London
+                    option(value="newyork") NewYork
+                    option(value="tokyo") Tokyo
+                    input(type="submit" value="submit")
+
+        script(src="js/weatherIcon.js")

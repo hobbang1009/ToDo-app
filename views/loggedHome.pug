@@ -1,0 +1,81 @@
+extends layouts/main
+block main
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    .loggedHome__container
+
+        .loggedHome__column
+
+            img(src=`${userAvatar}`) 
+
+        .loggedHome__column
+            
+            a.loggedHome__editProfile(href=`/user/${userID}`) Profile
+            span |
+            a(href="/user/logout") Logout
+
+        .loggedHome__column
+
+            span#jsWeatherIconText #{icon}
+            <i id="jsWeatherIcon" class="fas fa-cloud-sun"></i>
+            span  #{temperature}℃ 
+        
+        .loggedHome__column
+        
+            form(action="/",method="get")
+                select(name="Location")
+                    option(value='seoul') Location
+                    option(value="beijing")  Beijing
+                    option(value="saopaulo")  São Paulo
+                    option(value="seoul") Seoul
+                    option(value="shanghai") Shanghai
+                    option(value="london") London
+                    option(value="newyork") NewYork
+                    option(value="tokyo") Tokyo
+                    input(type="submit" value="submit")
+
+
+        .loggedHome__column
+
+
+            .loggedHome__board
+
+                span#jsBoardNewBtn New
+                span#jsBoardListBtn list
+                span#jsBoardSettingBtn Setting
+
+
+            .loggedHome__board
+                
+                .board__form__container.hidden#jsBoardNewFormContainer
+
+                    form(action="/board", method="post")
+
+                        input(class="board__new__input" name="todo" type="text",placeholder="ToDo")
+                        input(class="board__new__submit" type="submit",value="add")
+                        
+                .board__list__container
+
+                ul
+                    each todo in todos.reverse()
+                            
+                        li 
+                            span#jsBoardListSpan #{todo.todo}
+                            form( action=`/board/update?id=${todo._id}`,method="post")
+                                input(id="todoUpdateInput" class='todoUpdateInput hidden' name=`todo` type="text" value=todo.todo)
+                                input(id="todoUpdateSubmit" type="submit",class="hidden" value="edit")
+                            form( action="/board/check", method="post")
+                                button(class="todoCheckBox" name="todoID" value=`${todo._id}/${todo.completed}`) ❌ 
+                            form(action="/board/delete",method="post")
+                                button(class="todoDeleteBox hidden" name="delete",value=todo._id) <i class="far fa-trash-alt"></i>
+                            
+
+
+            .loggedHome__board#jsBoardPagingContainer
+
+                span << < 1 2 3 4 5 > >> 
+
+
+
+
+
+        script(src="js/boardControl.js")

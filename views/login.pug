@@ -1,0 +1,17 @@
+extends layouts/main
+block main
+    <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+    
+    .login__container
+
+        form(action=`/user/login?Location=${location}`, method="post")
+
+            input(type="text", name="email" placeholder="email")
+            input(type="password",name="password",placeholder="password")
+            input(class="login-submit" type="submit",value="Login")
+
+    .login__container
+
+        form(action="/user/join", method="get")
+            
+            input(type="submit",value="Join?")
