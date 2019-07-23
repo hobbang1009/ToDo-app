@@ -2,15 +2,19 @@ const express = require("express");
 const { homeAuth } = require("../middlewares/midAuth");
 const forecast = require("../public/utils/forecast");
 const geocoding = require("../public/utils/geocoding");
-const User = require("../models/user");
+const Todo = require("../models/todo");
 
 const router = express.Router();
 
 router.get("/", homeAuth, async (req, res) => {
   if (req.user) {
-    const user = await User.findById(req.user._id).populate("todo");
-    const todos = user.todo;
-
+    const todoCount = await Todo.find({ author: req.user._id });
+    const pageCount = parseInt(req.query.page) || 0;
+    const limitCount = 7;
+    const todos = await Todo.find({ author: req.user._id })
+      .limit(limitCount)
+      .skip(limitCount * pageCount)
+      .sort({ createdAt: -1 });
     if (req.query.Location !== undefined) {
       const userID = req.user._id;
       const location = req.query.Location;
@@ -24,7 +28,9 @@ router.get("/", homeAuth, async (req, res) => {
             temperature: Math.floor(forecastValue.temperature),
             userID,
             userAvatar: req.user.avatar,
-            todos
+            todos,
+            pageCount,
+            todoCount: todoCount.length
           });
         });
       });
@@ -41,7 +47,9 @@ router.get("/", homeAuth, async (req, res) => {
             temperature: Math.floor(forecastValue.temperature),
             userID,
             userAvatar: req.user.avatar,
-            todos
+            todos,
+            pageCount,
+            todoCount: todoCount.length
           });
         });
       });

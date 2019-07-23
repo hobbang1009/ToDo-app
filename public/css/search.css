@@ -1,0 +1,73 @@
+.searchHome__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchHome__container .searchHome__column:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  max-width: 300px;
+  margin-bottom: 16px;
+}
+
+.searchHome__container .searchHome__column:nth-child(1) button {
+  cursor: pointer;
+}
+
+.searchHome__container .searchHome__column:nth-child(2) {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 0px 20px;
+}
+
+.searchHome__container .searchHome__column:nth-child(2) span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.searchHome__container .searchHome__column:nth-child(2) h1 {
+  cursor: pointer;
+}
+
+.searchHome__container .searchHome__column:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 100px;
+  border: 5px solid #e3e7ee;
+}
+.searchHome__container .searchHome__column:nth-child(3) .searchHome__setting {
+  display: flex;
+}
+
+.searchHome__container .searchHome__column:nth-child(3) li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+.searchHome__container .searchHome__column:nth-child(3) span {
+  font-family: "Darker Grotesque", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 200px;
+  max-width: 200px;
+  cursor: default;
+}
+
+.searchHome__container .searchHome__column:nth-child(3) #jsSearchTodoUpdateBtn {
+  margin: 0px 7px;
+}
+
+.searchHome__container .searchHome__column:nth-child(3) button {
+  cursor: pointer;
+}

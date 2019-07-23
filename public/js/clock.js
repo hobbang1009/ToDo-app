@@ -3,7 +3,7 @@ const clockDate = document.querySelector("#jsClockDate");
 
 function clock() {
   const location = window.location.search.split("=")[1];
-
+  const query = window.location.search.slice("1").split("=")[0];
   if (location === "shanghai") {
     let timeset = new Date().toLocaleString("en-US", {
       timeZone: "Asia/Shanghai"
@@ -124,7 +124,7 @@ function clock() {
       date < 10 ? `0${date}` : date
     }`;
   }
-  if (location === undefined) {
+  if (location === undefined || query !== "Location") {
     let timeset = new Date().toLocaleString("en-US", {
       timeZone: "Asia/Seoul"
     });
@@ -141,7 +141,7 @@ function clock() {
       date < 10 ? `0${date}` : date
     }`;
   }
-  if (location === "undefined") {
+  if (location === "undefined" || query !== "Location") {
     let timeset = new Date().toLocaleString("en-US", {
       timeZone: "Asia/Seoul"
     });

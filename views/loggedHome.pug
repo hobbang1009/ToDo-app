@@ -1,6 +1,6 @@
 extends layouts/main
 block main
-    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:600&display=swap" rel="stylesheet">
     .loggedHome__container
 
         .loggedHome__column
@@ -31,8 +31,7 @@ block main
                     option(value="london") London
                     option(value="newyork") NewYork
                     option(value="tokyo") Tokyo
-                    input(type="submit" value="submit")
-
+                    input(class="weatherSubmit" type="submit" value="submit")
 
         .loggedHome__column
 
@@ -42,10 +41,15 @@ block main
                 span#jsBoardNewBtn New
                 span#jsBoardListBtn list
                 span#jsBoardSettingBtn Setting
-
+            
 
             .loggedHome__board
                 
+                .loggedHlome__boardForm    
+                    form(action="/search",method="get")
+                        input(type="text",name="search",placeholder="search")
+                        button <i class="fas fa-search"></i>
+
                 .board__form__container.hidden#jsBoardNewFormContainer
 
                     form(action="/board", method="post")
@@ -56,7 +60,7 @@ block main
                 .board__list__container
 
                 ul
-                    each todo in todos.reverse()
+                    each todo in todos
                             
                         li 
                             span#jsBoardListSpan #{todo.todo}
@@ -70,12 +74,23 @@ block main
                             
 
 
-            .loggedHome__board#jsBoardPagingContainer
+            .loggedHome__board
+                
+                .loggedHome__board__column
+                    if pageCount>=1
+                        a(href=`/?page=${pageCount -1}`) back
+                
+                .loggedHome__board__column#jsBoardPagingContainer
+                    a(class="jsBoardPageCount" id="jsBoardPageCount1" href=`/?page=0`) 1
+                    a(class="jsBoardPageCount" id="jsBoardPageCount2" href=`/?page=1`) 2
+                    a(class="jsBoardPageCount" id="jsBoardPageCount3" href=`/?page=2`) 3
+                    a(class="jsBoardPageCount" id="jsBoardPageCount4" href=`/?page=3`) 4
+                    a(class="jsBoardPageCount" id="jsBoardPageCount5" href=`/?page=4`) 5
+                    span#jsTodoBoardCount.hidden #{pageCount}
+                .loggedHome__board__column
+                    a(href=`/?page=${pageCount +1}`) next
 
-                span << < 1 2 3 4 5 > >> 
-
-
-
-
-
+        
+        
+        
         script(src="js/boardControl.js")

@@ -1,3 +1,4 @@
+//boards
 const boardNewBtn = document.querySelector("#jsBoardNewBtn");
 const boardListBtn = document.querySelector("#jsBoardListBtn");
 const boardSettingBtn = document.querySelector("#jsBoardSettingBtn");
@@ -11,6 +12,19 @@ const boardNewFormContainer = document.querySelector(
   "#jsBoardNewFormContainer"
 );
 const todoCheckBox = document.querySelectorAll(".todoCheckBox");
+//
+
+//todo Board Count
+const todoBoardPages = document.querySelectorAll(".jsBoardPageCount");
+const todoBoardPage1 = document.querySelector("#jsBoardPageCount1");
+const todoBoardPage2 = document.querySelector("#jsBoardPageCount2");
+const todoBoardPage3 = document.querySelector("#jsBoardPageCount3");
+const todoBoardPage4 = document.querySelector("#jsBoardPageCount4");
+const todoBoardPage5 = document.querySelector("#jsBoardPageCount5");
+const todoBoardCount = document.querySelector("#jsTodoBoardCount");
+const todoBoardContainer = document.querySelector("#jsBoardPagingContainer");
+
+//function start
 
 function handleBoardNewClick() {
   boardListSpan.forEach(span => {
@@ -72,6 +86,8 @@ function handleBoardSettingClick() {
 }
 
 function init() {
+  //board Count
+  //board list
   boardNewBtn.addEventListener("click", handleBoardNewClick);
   boardListBtn.addEventListener("click", handleBoardListClick);
   boardSettingBtn.addEventListener("click", handleBoardSettingClick);

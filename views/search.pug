@@ -1,0 +1,45 @@
+extends layouts/main
+block main
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:600&display=swap" rel="stylesheet">
+    .loggedHome__container
+
+        .loggedHome__column
+
+            img(src=`${userAvatar}`) 
+
+        .loggedHome__column
+            
+            a.loggedHome__editProfile(href=`/user/${userID}`) Profile
+            span |
+            a(href="/user/logout") Logout
+
+    
+    .searchHome__container
+
+        .searchHome__column
+
+            form(action='/search',method="get")
+                        input(type="text",name="search",placeholder="search")
+                        button <i class="fas fa-search"></i>
+
+        .searchHome__column
+            h2 
+            span #{query}
+            h1#jsSearchSetting setting
+
+        .searchHome__column
+            
+            ul
+                each todo in searchedTodo
+                    li 
+                        span#jsSearchTodoSpan #{todo.todo}
+                        form(action=`/search/update?search=${query}`, method="post")
+                            input(id="jsSearchTodoInput" type="text" class='hidden' name='content' value=`${todo.todo}`)
+                            button(class="hidden" id="jsSearchTodoUpdateBtn" name="id" value=`${todo._id}`) edit
+                        
+                        form(action=`/search/delete?search=${query}`, method="post")
+                            button( id="jsSearchDelBtn" class="hidden" name="delete" value=`${todo._id}`) <i class="far fa-trash-alt"></i>
+                        form(id="jsSearchTodoForm" action=`/search?search=${query}`, method="post")
+                            button(id="jsSearchTodoBtn" class=`todoisabcdefg${todo.completed}` name="completed" value=`${todo._id}`) bt
+
+    script(src="js/searchControl.js")
