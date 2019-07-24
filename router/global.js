@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.get("/", homeAuth, async (req, res) => {
   if (req.user) {
-    const todoCount = await Todo.find({ author: req.user._id });
+    const totalP = await Todo.find({ author: req.user._id });
+    const totalPage = Math.ceil(totalP.length / 7);
     const pageCount = parseInt(req.query.page) || 0;
     const limitCount = 7;
     const todos = await Todo.find({ author: req.user._id })
@@ -30,7 +31,7 @@ router.get("/", homeAuth, async (req, res) => {
             userAvatar: req.user.avatar,
             todos,
             pageCount,
-            todoCount: todoCount.length
+            totalPage
           });
         });
       });
@@ -49,7 +50,7 @@ router.get("/", homeAuth, async (req, res) => {
             userAvatar: req.user.avatar,
             todos,
             pageCount,
-            todoCount: todoCount.length
+            totalPage
           });
         });
       });

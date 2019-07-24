@@ -78,17 +78,15 @@ block main
                 
                 .loggedHome__board__column
                     if pageCount>=1
-                        a(href=`/?page=${pageCount -1}`) back
-                
+                        a(href=`/?page=0`) <<
+                        a(href=`/?page=${pageCount -1}`) <
+
                 .loggedHome__board__column#jsBoardPagingContainer
-                    a(class="jsBoardPageCount" id="jsBoardPageCount1" href=`/?page=0`) 1
-                    a(class="jsBoardPageCount" id="jsBoardPageCount2" href=`/?page=1`) 2
-                    a(class="jsBoardPageCount" id="jsBoardPageCount3" href=`/?page=2`) 3
-                    a(class="jsBoardPageCount" id="jsBoardPageCount4" href=`/?page=3`) 4
-                    a(class="jsBoardPageCount" id="jsBoardPageCount5" href=`/?page=4`) 5
-                    span#jsTodoBoardCount.hidden #{pageCount}
+                    span.hidden#jsBoardPageTotal #{totalPage}
                 .loggedHome__board__column
-                    a(href=`/?page=${pageCount +1}`) next
+                    if pageCount<totalPage-1
+                        a(href=`/?page=${pageCount +1}`) >
+                        a(href=`/?page=${totalPage-1}`) >>
 
         
         

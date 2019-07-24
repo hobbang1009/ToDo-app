@@ -10,7 +10,7 @@ const app = express();
 require("dotenv").config({ path: "config/dev.env" });
 require("./db");
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "pug");
 app.set("views", "views");

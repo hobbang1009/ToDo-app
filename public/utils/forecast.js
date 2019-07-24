@@ -8,9 +8,13 @@ const forecast = (lat, long, callback) => {
   )}?exclude=minutely,hourly,daily,alerts&units=si`;
 
   request.get(url, (error, response) => {
-    const parsed = JSON.parse(response.body);
-    const { summary, icon, temperature } = parsed.currently;
-    callback({ summary, icon, temperature });
+    if (response.body !== '{"code":403,"error":"daily usage limit exceeded"}') {
+      const parsed = JSON.parse(response.body);
+      const { summary, icon, temperature } = parsed.currently;
+      callback({ summary, icon, temperature });
+    } else {
+      callback("expired", "expired", "0");
+    }
   });
 };
 
